@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Ting" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apptheme_default_detail.png" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-KN-EcV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGY-6o-idc">
+                                <rect key="frame" x="47" y="453" width="76" height="76"/>
+                                <animations/>
+                                <state key="normal" image="player_btn_play_normal.png"/>
+                                <connections>
+                                    <action selector="playOrPauseSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qX5-CX-Tkd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-tK-Smj">
+                                <rect key="frame" x="131" y="479" width="50" height="50"/>
+                                <animations/>
+                                <state key="normal" image="player_btn_next_normal.png">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rij-X1-SQp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LJ4-KN-EcV" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="3yd-xW-szm"/>
+                            <constraint firstItem="LJ4-KN-EcV" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="8pv-Ng-0t0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OGY-6o-idc" secondAttribute="centerY" constant="50" id="9gS-3H-eRd"/>
+                            <constraint firstItem="LJ4-KN-EcV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="F8g-Wv-r7q"/>
+                            <constraint firstItem="n8b-tK-Smj" firstAttribute="centerX" secondItem="OGY-6o-idc" secondAttribute="centerX" constant="70" id="FRk-H7-vS8"/>
+                            <constraint firstItem="OGY-6o-idc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="Jie-9K-X2n"/>
+                            <constraint firstItem="LJ4-KN-EcV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VXQ-zf-GFR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="n8b-tK-Smj" secondAttribute="centerY" constant="40" id="dzd-V1-tet"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="LJ4-KN-EcV" id="pk7-NG-HaS"/>
+                        <outlet property="btn_next" destination="n8b-tK-Smj" id="clm-s4-uD2"/>
+                        <outlet property="btn_play" destination="OGY-6o-idc" id="yek-0x-qpS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="448" y="437"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="apptheme_default_detail.png" width="225" height="400"/>
+        <image name="player_btn_next_normal.png" width="64" height="64"/>
+        <image name="player_btn_play_normal.png" width="64" height="64"/>
+    </resources>
+</document>
