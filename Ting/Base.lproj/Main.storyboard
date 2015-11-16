@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,7 +23,7 @@
                                 <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGY-6o-idc">
-                                <rect key="frame" x="47" y="453" width="76" height="76"/>
+                                <rect key="frame" x="20" y="410" width="143" height="146"/>
                                 <animations/>
                                 <state key="normal" image="player_btn_play_normal.png"/>
                                 <connections>
@@ -32,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-tK-Smj">
-                                <rect key="frame" x="131" y="479" width="50" height="50"/>
+                                <rect key="frame" x="171" y="479" width="50" height="50"/>
                                 <animations/>
                                 <state key="normal" image="player_btn_next_normal.png">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -42,18 +41,24 @@
                                     <action selector="nextSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rij-X1-SQp"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="player_slide_bar_normal.png" translatesAutoresizingMaskIntoConstraints="NO" id="fAE-eR-760">
+                                <rect key="frame" x="277" y="502" width="28" height="27"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fAE-eR-760" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="trailing" multiplier="0.8125" id="3Bz-gQ-wFX"/>
                             <constraint firstItem="LJ4-KN-EcV" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="3yd-xW-szm"/>
                             <constraint firstItem="LJ4-KN-EcV" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="8pv-Ng-0t0"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OGY-6o-idc" secondAttribute="centerY" constant="50" id="9gS-3H-eRd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OGY-6o-idc" secondAttribute="bottom" constant="10" id="9gS-3H-eRd"/>
                             <constraint firstItem="LJ4-KN-EcV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="F8g-Wv-r7q"/>
-                            <constraint firstItem="n8b-tK-Smj" firstAttribute="centerX" secondItem="OGY-6o-idc" secondAttribute="centerX" constant="70" id="FRk-H7-vS8"/>
-                            <constraint firstItem="OGY-6o-idc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="Jie-9K-X2n"/>
+                            <constraint firstItem="OGY-6o-idc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="trailing" multiplier="0.25" id="Jie-9K-X2n"/>
                             <constraint firstItem="LJ4-KN-EcV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VXQ-zf-GFR"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="n8b-tK-Smj" secondAttribute="centerY" constant="40" id="dzd-V1-tet"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fAE-eR-760" secondAttribute="bottom" constant="10" id="eCe-Wh-fow"/>
+                            <constraint firstItem="n8b-tK-Smj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="trailing" multiplier="0.625" id="p79-TN-0bu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="n8b-tK-Smj" secondAttribute="bottom" constant="10" id="soU-3h-d3I"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -72,6 +77,7 @@
     <resources>
         <image name="apptheme_default_detail.png" width="225" height="400"/>
         <image name="player_btn_next_normal.png" width="64" height="64"/>
-        <image name="player_btn_play_normal.png" width="64" height="64"/>
+        <image name="player_btn_play_normal.png" width="128" height="128"/>
+        <image name="player_slide_bar_normal.png" width="32" height="32"/>
     </resources>
 </document>
