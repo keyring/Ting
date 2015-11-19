@@ -43,10 +43,17 @@ class ViewController: UIViewController, HttpProtocol {
 //        backgroundImage.addSubview(blurEffectView)
         setupProgressSlider()
         ehttp.delegate = self
-        ehttp.onSearch("http://douban.fm/j/mine/playlist?channel=1")
+        ehttp.onSearch("http://douban.fm/j/mine/playlist?channel=0")
         
         notifycation.addObserver(self, selector: "playNextSong", name: MPMoviePlayerPlaybackDidFinishNotification, object: nil)
         
+        let str = "http://tu.ihuan.me/api/bing"
+         let url = NSURL(string: str)
+            if let data = NSData(contentsOfURL: url!){
+                backgroundImage.contentMode = UIViewContentMode.ScaleAspectFit
+                backgroundImage.image = UIImage(data: data)
+            }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,12 +89,12 @@ class ViewController: UIViewController, HttpProtocol {
     
     func setCurrentSong(curSong:Song){
         playSong = curSong
-        if let url = NSURL(string: playSong.picture as String){
-            if let data = NSData(contentsOfURL: url){
-                backgroundImage.contentMode = UIViewContentMode.ScaleAspectFit
-                backgroundImage.image = UIImage(data: data)
-            }
-        }
+//        if let url = NSURL(string: playSong.picture as String){
+//            if let data = NSData(contentsOfURL: url){
+//                backgroundImage.contentMode = UIViewContentMode.ScaleAspectFit
+//                backgroundImage.image = UIImage(data: data)
+//            }
+//        }
         btn_play.selected = true
         progressSlider.progress = 0.0
         audioPlayer.stop()
