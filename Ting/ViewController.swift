@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import AVFoundation
 
 class ViewController: UIViewController, HttpProtocol {
 
@@ -15,6 +16,8 @@ class ViewController: UIViewController, HttpProtocol {
     @IBOutlet weak var btn_next: UIButton!
     @IBOutlet weak var btn_prev: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var sliderbarImage: UIImageView!
+    
     
     var progressSlider: CircleProgress!
     var ehttp: HttpController = HttpController()
@@ -22,10 +25,17 @@ class ViewController: UIViewController, HttpProtocol {
     var playSong = Song()
     var audioPlayer = MPMoviePlayerController()
     var timer = NSTimer()
+    var notifycation = NSNotificationCenter.defaultCenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        do{
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        }catch{
+            NSLog("Failed to set audio session category.")
+        }
         
 //        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
 //        let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -34,6 +44,9 @@ class ViewController: UIViewController, HttpProtocol {
         setupProgressSlider()
         ehttp.delegate = self
         ehttp.onSearch("http://douban.fm/j/mine/playlist?channel=1")
+        
+        notifycation.addObserver(self, selector: "playNextSong", name: MPMoviePlayerPlaybackDidFinishNotification, object: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,10 +72,12 @@ class ViewController: UIViewController, HttpProtocol {
     }
     
     func setupProgressSlider() {
-        progressSlider = CircleProgress(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2))
-        progressSlider.colors = [0xA6E39D, 0xAEC1E3, 0xAEC1E3, 0xF3C0AB]
+        progressSlider = CircleProgress(frame: CGRectMake(0,0, self.sliderbarImage.frame.width, self.sliderbarImage.frame.height))
+        progressSlider.colors = [0x000000, 0x000000, 0x000000, 0x000000]
+        progressSlider.lineWidth = 5
+        progressSlider.progressAlpha = 1
         
-        self.view.addSubview(progressSlider)
+        self.sliderbarImage.addSubview(progressSlider)
     }
     
     func setCurrentSong(curSong:Song){
@@ -85,6 +100,7 @@ class ViewController: UIViewController, HttpProtocol {
     
     func playNextSong(){
         if (self.tableData.count <= 0) {
+            btn_play.selected = false
             ehttp.onSearch("http://douban.fm/j/mine/playlist?channel=1")
             return
         }
@@ -100,21 +116,18 @@ class ViewController: UIViewController, HttpProtocol {
             let t = audioPlayer.duration
             let percent = CDouble(c/t)
             progressSlider.progress = percent
-            
-            if c >= t {
-                playNextSong()
-            }
         }
         
     }
     
     @IBAction func playOrPauseSong(sender: UIButton) {
+
         if (sender.selected){
             audioPlayer.pause()
         }else{
             audioPlayer.play()
         }
-
+        
         sender.selected = !sender.selected
     }
     
