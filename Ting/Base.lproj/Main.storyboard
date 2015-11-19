@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apptheme_default_detail.png" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-KN-EcV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="apptheme_default_detail.png" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-KN-EcV">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -53,9 +53,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fAE-eR-760" firstAttribute="leading" secondItem="n8b-tK-Smj" secondAttribute="trailing" constant="20" id="0lV-Rm-hos"/>
-                            <constraint firstItem="LJ4-KN-EcV" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="3yd-xW-szm"/>
                             <constraint firstItem="n8b-tK-Smj" firstAttribute="leading" secondItem="OGY-6o-idc" secondAttribute="trailing" constant="20" id="8A5-Wx-fvf"/>
-                            <constraint firstItem="LJ4-KN-EcV" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="8pv-Ng-0t0"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OGY-6o-idc" secondAttribute="bottom" constant="20" id="9gS-3H-eRd"/>
                             <constraint firstItem="LJ4-KN-EcV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="F8g-Wv-r7q"/>
                             <constraint firstItem="LJ4-KN-EcV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VXQ-zf-GFR"/>
