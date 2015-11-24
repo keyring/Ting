@@ -75,7 +75,7 @@ class MusicViewController: UIViewController, HttpProtocol {
     
     func setupProgressSlider() {
         progressSlider = CircleProgress(frame: CGRectMake(0,0, self.sliderbarImage.frame.width, self.sliderbarImage.frame.height))
-        progressSlider.colors = [0x000000, 0x000000, 0x000000, 0x000000]
+        progressSlider.colors = [0xffffff, 0xffffff, 0xffffff, 0xffffff]
         progressSlider.lineWidth = 5
         progressSlider.progressAlpha = 1
         

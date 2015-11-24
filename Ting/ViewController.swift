@@ -20,11 +20,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let str = "http://tu.ihuan.me/api/bing"
-         let url = NSURL(string: str)
-            if let data = NSData(contentsOfURL: url!){
-                backgroundImage.contentMode = UIViewContentMode.ScaleAspectFit
-                backgroundImage.image = UIImage(data: data)
-            }
+        let url = NSURL(string: str)
+        if let data = NSData(contentsOfURL: url!){
+            backgroundImage.contentMode = UIViewContentMode.ScaleAspectFit
+            backgroundImage.image = UIImage(data: data)
+            
+        }
+        
+        
+        
+        
         var scrollview = UIScrollView()
         scrollview.frame = self.view.bounds
         scrollview.contentSize = CGSizeMake(self.view.frame.width, self.view.frame.height*2)
@@ -32,16 +37,24 @@ class ViewController: UIViewController {
         scrollview.showsHorizontalScrollIndicator = false
         scrollview.showsVerticalScrollIndicator = false
         scrollview.scrollsToTop = false
+        scrollview.bounces = false
+        self.view.addSubview(scrollview)
         
-        var musicControlView = MusicViewController()
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = CGRectMake(0, self.view.frame.height-200, self.view.frame.width, self.view.frame.height+200)
+        scrollview.addSubview(blurEffectView)
+        
+        let sb = UIStoryboard(name:"Main", bundle: nil)
+        var musicControlView = sb.instantiateViewControllerWithIdentifier("musicControl") as! MusicViewController
         musicControlView.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         scrollview.addSubview(musicControlView.view)
         
-        var contentView = ContentViewController()
+        var contentView = sb.instantiateViewControllerWithIdentifier("contentView") as! ContentViewController
         contentView.view.frame = CGRectMake(0, self.view.frame.height, self.view.frame.width, self.view.frame.height)
         scrollview.addSubview(contentView.view)
         
-        self.view.addSubview(scrollview)
+        
         
     }
 
